@@ -3,28 +3,37 @@
 <head>
     <link rel="stylesheet" href="style.css">
     <meta charset="UTF-8">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Busca de lirvros </title>
+    <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/29/29302.png">
+    <title> Busca de lirvros </title>
 </head>
 <body>
- <h1>Busca de Livros</h1>
 
-<input type="text" id="busca" placeholder="Digite o nome do livro">
-<button onclick="buscarLivros()">Buscar</button>
+ <div class="container">
+    <img src="https://cdn-icons-png.flaticon.com/512/29/29302.png" width="50">
+    <h1>Busca de Livros</h1>
 
-<table border="1">
-    <thead>
-        <tr>
-            <th>Título</th>
-            <th>Autor</th>
-            <th>Ano</th>
-            <th>Edição</th>
-            <th>Ações</th>
-        </tr>
-    </thead>
-    <tbody id="tabela"></tbody>
-</table>
+    <form onsubmit="buscarLivros(); return false;">
+        <input type="text" id="busca" placeholder="Digite o nome do livro">
+        <button type="submit">Buscar</button>
+    </form>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Título</th>
+                <th>Autor</th>
+                <th>Ano</th>
+                <th>Edição</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody id="tabela"></tbody>
     </table>
+
+</div>
+
 <script src="script.js"></script>
 </body>
 </html>
