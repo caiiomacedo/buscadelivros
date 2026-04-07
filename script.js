@@ -6,9 +6,14 @@ async function buscarLivros() {
     const termo = document.getElementById('busca').value;
 
     if (!termo) {
-        alert('Digite algo!');
-        return;
-    }
+    Swal.fire({
+        title: 'Campo obrigatório',
+        text: 'Por favor, digite o nome de um livro',
+        icon: 'warning',
+        confirmButtonText: 'OK'
+    });
+    return;
+}
 
     try {
         const resposta = await fetch(`https://openlibrary.org/search.json?q=${termo}`);

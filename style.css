@@ -1,13 +1,78 @@
 body {
-  font-family: Arial;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #4facfe, #00f2fe);
+  margin: 0;
+  padding: 0;
+}
+
+/* Caixa principal */
+.container {
+  width: 80%;
+  max-width: 900px;
+  margin: 50px auto;
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
   text-align: center;
 }
 
+/* Título */
+h1 {
+  color: #333;
+}
+
+/* Input */
+input {
+  padding: 10px;
+  width: 60%;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Botão */
+button {
+  padding: 10px 15px;
+  border: none;
+  background: #4facfe;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #007bff;
+}
+
+/* Tabela */
 table {
-  margin: auto;
+  width: 100%;
+  margin-top: 20px;
   border-collapse: collapse;
 }
 
+/* Cabeçalho */
+th {
+  background: #4facfe;
+  color: white;
+}
+
+/* Células */
 td, th {
   padding: 10px;
+  border: 1px solid #ddd;
+}
+
+/* Linhas alternadas */
+tr:nth-child(even) {
+  background: #f9f9f9;
+}
+
+/* Botão excluir */
+td button {
+  background: #dc3545;
+}
+
+td button:hover {
+  background: #a71d2a;
 }
