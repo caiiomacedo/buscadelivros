@@ -1,25 +1,28 @@
+/**
+ * Busca livros na API do Open Library conforme digitado pelo usuário.
+ * * @returns {Promise<void>} Uma promise vazia, indicando a conclusão da busca.
+ */
 async function buscarLivros() {
     const termo = document.getElementById('busca').value;
-
-    try {
-} catch (erro) {
-   alert("Erro ao buscar livros");
-}
 
     if (!termo) {
         alert('Digite algo!');
         return;
     }
 
-    const resposta = await fetch(`https://openlibrary.org/search.json?q=${termo}`);
-    const dados = await resposta.json();
-
-    mostrarLivros(dados.docs.slice(0, 5));
+    try {
+        const resposta = await fetch(`https://openlibrary.org/search.json?q=${termo}`);
+        const dados = await resposta.json();
+        mostrarLivros(dados.docs.slice(0, 5));
+    } catch (erro) {
+        alert("Erro ao buscar livros");
+    }
 }
 
 /**
- * Mostra os livros na tabela
- * @param {Array} livros
+ * Renderiza a lista de livros recebida na tabela HTML da página.
+ * * @param {Array} livros Um array contendo os objetos dos livros a serem exibidos.
+ * @returns {void} A função não tem retorno.
  */
 function mostrarLivros(livros) {
     const tabela = document.getElementById('tabela');
@@ -43,13 +46,18 @@ function mostrarLivros(livros) {
 }
 
 /**
- * Salva no localStorage
- * @param {Array} livros
+ * Salva a lista atual de livros no armazenamento local (localStorage) do navegador.
+ * * @param {Array} livros Um array de livros que será convertido em texto (JSON) e salvo.
+ * @returns {void} A função não tem retorno.
  */
 function salvarLocal(livros) {
     localStorage.setItem('livros', JSON.stringify(livros));
 }
 
+/**
+ * Busca os dados salvos no localStorage
+ * * @returns {void} A função não tem retorno.
+ */
 function carregarLocal() {
     const dados = JSON.parse(localStorage.getItem('livros'));
 
@@ -60,6 +68,11 @@ function carregarLocal() {
 
 carregarLocal();
 
+/**
+ * Remove um livro específico da lista 
+ * * @param {number} index A posição (índice) do livro dentro do array que deve ser excluído.
+ * @returns {void} A função não tem retorno.
+ */
 function remover(index) {
     let livros = JSON.parse(localStorage.getItem('livros'));
 
